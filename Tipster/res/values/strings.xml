@@ -1,0 +1,71 @@
+<resources>
+
+    <string name="app_name">Tipster</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Tipster</string>
+    <string name="welcome">Welcome to Tipster - the tip calculating app for Android\n\nSelect an option below to continue :</string>
+    <string name="mealIntro">Let\'s start off by rating your meal:</string>
+    <string name="mealSpeed">How quickly did you recieve your food?</string>
+    <string name="mealTaste">How delicious was your meal?</string>
+    <string name="serverIntro">Now let\'s evaluate the service:</string>
+    <string name="serverCourtesy">How courteous was your server?</string>
+    <string name="serverRating">How would you rate your server?</string>
+    <string name="estabIntro">Finally, let\'s rate the establishment:</string>
+    <string name="estabClean">How clean is the building?</string>
+    <string name="estabInvite">How inviting is the atmosphere?</string>
+    <string name="serverRush">Did your server make you feel rushed?</string>
+    <string name="finalreturn">And most importantly, would you come here again if you were given the choice?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="calculate">Calculate my tip!</string>
+    <string name="title_activity_display_total">DisplayTotal</string>
+    <string name="tipPercent">"Percentage of bill to tip : "</string>
+    <string name="billAmount">How much was your bill?</string>
+    <string name="calcFinal">Calculate Final Bill!</string>
+    <string name="classicMode">Help me!</string>
+    <string name="quickMode">15%!</string>
+    <string name="luckyMode">Lucky Mode</string>
+    <string name="clear">Clear</string>
+    <string name="finalMessage">"Your total after tip is : "</string>
+    <string name="tipMessage">Value of tip : &quot;</string>
+    <string name="split">&quot;Split the total by &quot;</string>
+    <string name="people">people.</string>
+    <string-array name="splitArray">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+        <string name="person">person</string>
+        <color name="gray">#DDD</color>
+        <color name="background">#ADF</color>
+        <color name="white">#FFF</color>
+        <color name="shadow">#777</color>
+        <string name="email">Contact</string>
+        <string name="rate">Rate Tipster</string>
+        <string name="meDo">Manual Entry</string>
+        <string name="addTip">Add a tip!</string>
+        <string-array name="tipPercentage">
+            <item>5%</item>
+	        <item>6%</item>
+	        <item>7%</item>
+	        <item>8%</item>
+	        <item>9%</item>
+	        <item>10%</item>
+	        <item>11%</item>
+	        <item>12%</item>
+	        <item>13%</item>
+	        <item>14%</item>
+	        <item>15%</item>
+	        <item>16%</item>
+	        <item>17%</item>
+	        <item>18%</item>
+	        <item>19%</item>
+	        <item>20%</item>
+        </string-array>
+	        <string name="findLocation">Find Location</string>
+	        <string name="pickLocation"><b>Select Location :</b></string>
+	        <string name="FacebookAppId">468850536509250</string>
+
+</resources>
