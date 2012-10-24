@@ -44,6 +44,8 @@ public class DisplayTotals extends Activity {
 	    numSpin.setVisibility(View.GONE);		  
 	    
 	    value = intent.getDoubleExtra("percent", 0);
+		Tipster global = (Tipster)getApplicationContext();
+		global.setTipAmount(value);
 	    
 	  //Spinner	    	    
 	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, 
@@ -85,6 +87,8 @@ public class DisplayTotals extends Activity {
             case R.id.email:
                 email();
                 return true;
+            case R.id.location:
+            	locate();
             default:
                 return super.onOptionsItemSelected(item);
         } 	
@@ -94,6 +98,11 @@ public class DisplayTotals extends Activity {
     	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
     	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
     	startActivity(launchBrowser); 
+    }
+    
+    private void locate(){
+		Intent intent = new Intent(this, Locate.class);
+		startActivity(intent);
     }
     
     private void email(){
@@ -143,6 +152,11 @@ public class DisplayTotals extends Activity {
 				imm.hideSoftInputFromWindow(finalTotal.getWindowToken(), 0);
 		}
 	}
+	
+	public void facebookShare(View view){
+		Intent intent = new Intent(this, FacebookPost.class);
+		startActivity(intent);
+	}	
 		
 	public class MyOnItemSelectedListener implements OnItemSelectedListener{
 

@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:text="@string/finalMessage"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -63,7 +63,7 @@
         android:layout_alignLeft="@+id/finalMessage"
         android:layout_below="@id/button1"
         android:layout_centerVertical="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:text="@string/tipMessage" />
 
     <TextView
@@ -80,7 +80,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/finalMessage"
         android:layout_below="@+id/textView1"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="25dp"
         android:text="@string/split" />
     <Spinner
         android:id="@+id/numberSpinner"
@@ -99,5 +99,14 @@
         android:layout_alignBottom="@+id/numberSpinner"
         android:layout_toRightOf="@+id/numberSpinner"
         android:text="@string/person" />
+    
+        <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="Facebook"
+        android:onClick="facebookShare" />
 
 </RelativeLayout>

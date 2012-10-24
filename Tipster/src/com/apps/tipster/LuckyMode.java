@@ -43,6 +43,9 @@ public class LuckyMode extends Activity {
 	    
 		Random generator = new Random();
 		value = generator.nextDouble()*15+5;
+		
+		Tipster global = (Tipster)getApplicationContext();
+		global.setTipAmount(value);
 	    
 	    //Spinner	    	    
 	    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, 
@@ -84,6 +87,8 @@ public class LuckyMode extends Activity {
             case R.id.email:
                 email();
                 return true;
+            case R.id.location:
+            	locate();
             default:
                 return super.onOptionsItemSelected(item);
         } 	
@@ -95,8 +100,13 @@ public class LuckyMode extends Activity {
     	startActivity(launchBrowser); 
     }
     
+    private void locate(){
+		Intent intent = new Intent(this, Locate.class);
+		startActivity(intent);
+    }
+    
     private void email(){
-    	String aEmailList[] = { "CalmlyCoding@gmail.com"};  
+    	String aEmailList[] = { "CalmlyCoding@gmail.com" };  
     	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
     	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
     	emailIntent.setType("plain/text");    	
@@ -117,8 +127,7 @@ public class LuckyMode extends Activity {
 	}
 
 	public void paymentTotal(View view){
-		EditText billAmount = (EditText)findViewById(R.id.editText1);			
-
+		EditText billAmount = (EditText)findViewById(R.id.editText1);
 		NumberFormat format = NumberFormat.getCurrencyInstance();		
 		
 		if(billAmount.getText().toString().length() == 0){

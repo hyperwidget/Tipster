@@ -86,6 +86,8 @@ public class ManualMode extends Activity {
             case R.id.email:
                 email();
                 return true;
+            case R.id.location:
+            	locate();
             default:
                 return super.onOptionsItemSelected(item);
         } 	
@@ -95,6 +97,11 @@ public class ManualMode extends Activity {
     	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
     	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
     	startActivity(launchBrowser); 
+    }
+    
+    private void locate(){
+		Intent intent = new Intent(this, Locate.class);
+		startActivity(intent);
     }
     
     private void email(){
@@ -136,6 +143,8 @@ public class ManualMode extends Activity {
 			Spinner tipSpin = (Spinner)findViewById(R.id.tipSpin);
 			int people = numSpin.getSelectedItemPosition() + 1;
 			double value = tipSpin.getSelectedItemPosition() + 5;
+			Tipster global = (Tipster)getApplicationContext();
+			global.setTipAmount(value);
 			
 			//tipValue.setText(Double.toString(Math.round(value*100.0)/100.0) + "% or " + format.format(Math.round((value/100) * Double.parseDouble(billAmount.getText().toString())*100.0)/100.0));
 			double finalAmount = Math.round((value/100 + 1) * Double.parseDouble(billAmount.getText().toString())*100.0)/100.0/people ;
@@ -160,4 +169,9 @@ public class ManualMode extends Activity {
 				imm.hideSoftInputFromWindow(finalTotal.getWindowToken(), 0);
 		}		
 	}
+	
+	public void facebookShare(View view){
+		Intent intent = new Intent(this, FacebookPost.class);
+		startActivity(intent);
+	}	
 }

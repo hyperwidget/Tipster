@@ -66,6 +66,6 @@
         </string-array>
 	        <string name="findLocation">Find Location</string>
 	        <string name="pickLocation"><b>Select Location :</b></string>
-	        <string name="FacebookAppId">468850536509250</string>
+	        <string name="applicationId">468850536509250</string>
 
 </resources>

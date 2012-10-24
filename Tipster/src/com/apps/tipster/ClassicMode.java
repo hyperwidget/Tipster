@@ -39,6 +39,8 @@ public class ClassicMode extends Activity {
             case R.id.email:
                 email();
                 return true;
+            case R.id.location:
+            	locate();
             default:
                 return super.onOptionsItemSelected(item);
         } 	
@@ -48,6 +50,11 @@ public class ClassicMode extends Activity {
     	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
     	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
     	startActivity(launchBrowser); 
+    }
+    
+    private void locate(){
+		Intent intent = new Intent(this, Locate.class);
+		startActivity(intent);
     }
     
     private void email(){
