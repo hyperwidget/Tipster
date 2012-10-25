@@ -3,6 +3,8 @@ package com.apps.tipster;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -123,17 +125,20 @@ public class FacebookPost extends FacebookActivity {
 	                         error.getMessage(),
 	                         Toast.LENGTH_SHORT).show();
 	                    } else {
-	                        Toast.makeText(FacebookPost.this
-	                             .getApplicationContext(), 
-	                             postId,
-	                             Toast.LENGTH_LONG).show();
+	                    	AlertDialog alertDialog = new AlertDialog.Builder(FacebookPost.this).create();
+	                		alertDialog.setTitle("Success!");
+	                		alertDialog.setMessage("The tale of your tipping has been shared to your facebook feed!");
+	                		alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Return", new DialogInterface.OnClickListener() {
+	                		   public void onClick(DialogInterface dialog, int which) {
+	                		      finish();
+	                		   }
+	                		});
+	                		
+	                		alertDialog.show();
 	                }
 	            }
 	        };
 		    
-		    Toast.makeText(FacebookPost.this,
-                    "Posted story, id: "+"150032152",
-                    Toast.LENGTH_SHORT).show();
 		    Request request = new Request(session, "me/feed", params, 
                     HttpMethod.POST, callback);
 

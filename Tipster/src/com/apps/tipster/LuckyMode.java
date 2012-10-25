@@ -3,13 +3,18 @@ package com.apps.tipster;
 import java.text.NumberFormat;
 import java.util.Random;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
@@ -18,10 +23,11 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class LuckyMode extends Activity {
+public class LuckyMode extends SherlockActivity {
 	
 	private double value;
 
@@ -30,16 +36,21 @@ public class LuckyMode extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.lucky_mode);
+	    ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 	    TextView message = (TextView)findViewById(R.id.finalMessage);
 	    TextView tipMessage = (TextView)findViewById(R.id.textView1);
 	    TextView txtPerson = (TextView)findViewById(R.id.textView4);
 	    TextView txtPeople = (TextView)findViewById(R.id.textView5);
 	    Spinner numSpin = (Spinner)findViewById(R.id.numberSpinner);
+	    ImageButton shareButton = (ImageButton)findViewById(R.id.button2);
 	    message.setVisibility(View.GONE);
 	    tipMessage.setVisibility(View.GONE);
 	    txtPerson.setVisibility(View.GONE);
 	    txtPeople.setVisibility(View.GONE);
-	    numSpin.setVisibility(View.GONE);	    
+	    numSpin.setVisibility(View.GONE);
+	    shareButton.setVisibility(View.GONE);
+	    
 	    
 		Random generator = new Random();
 		value = generator.nextDouble()*15+5;
@@ -72,15 +83,18 @@ public class LuckyMode extends Activity {
 	    // TODO Auto-generated method stub
 	}
 	
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+    	MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.activity_main, menu);
         return true;
     }
     
-    public boolean onOptionsItemSelected(android.view.MenuItem item) {    	
+    public boolean onOptionsItemSelected(MenuItem item) {    	
         // Handle item selection
         switch (item.getItemId()) {
+        	case android.R.id.home:
+        		goHome();
+        		return true;
             case R.id.rate:
                 playStore();
                 return true;
@@ -89,9 +103,16 @@ public class LuckyMode extends Activity {
                 return true;
             case R.id.location:
             	locate();
+            	return true;
             default:
                 return super.onOptionsItemSelected(item);
         } 	
+    }
+    
+    private void goHome(){
+    	Intent intent = new Intent(this, SplashPage.class);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	startActivity(intent);
     }
     
     private void playStore(){
@@ -140,6 +161,7 @@ public class LuckyMode extends Activity {
 			TextView txtPerson = (TextView)findViewById(R.id.textView4);
 			TextView txtPeople = (TextView)findViewById(R.id.textView5);
 			Spinner numSpin = (Spinner)findViewById(R.id.numberSpinner);
+		    ImageButton shareButton = (ImageButton)findViewById(R.id.button2);
 			int people = numSpin.getSelectedItemPosition() + 1;
 			
 			tipValue.setText(Double.toString(Math.round(value*100.0)/100.0) + "% or " + format.format(Math.round((value/100) * Double.parseDouble(billAmount.getText().toString())*100.0)/100.0));
@@ -158,6 +180,7 @@ public class LuckyMode extends Activity {
 			txtPerson.setVisibility(View.VISIBLE);
 			numSpin.setVisibility(View.VISIBLE);
 			txtPeople.setVisibility(View.VISIBLE);
+			shareButton.setVisibility(View.VISIBLE);
 			
 			InputMethodManager imm = (InputMethodManager)getSystemService(
 				      Context.INPUT_METHOD_SERVICE);

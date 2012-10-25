@@ -128,9 +128,9 @@ public class SplashPage extends SherlockActivity {
 	public void startInstructions(){
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		alertDialog.setTitle("A quick overview");
-		alertDialog.setMessage("Tipster currently consists of three main modules:\n" +
+		alertDialog.setMessage("Tipster currently has four main modules:\n" +
 				"Help Me! - a mode that asks you questions about your dining experience" +
-				"and provides a value that you should tip based on your answers.\n");
+				"and advises you on how much you should tip based on your responses.\n");
 		alertDialog.setButton(alertDialog.BUTTON_POSITIVE, "Next", new DialogInterface.OnClickListener() {
 		   public void onClick(DialogInterface dialog, int which) {
 			   secondInstructions();
@@ -146,8 +146,9 @@ public class SplashPage extends SherlockActivity {
 	public void secondInstructions(){
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		alertDialog.setTitle("Not much further now...");
-		alertDialog.setMessage("15% - This mode assigns a standard 15% tip to your bill\n" +
-				"Lucky Mode - This mode randomly assigns a tip value from 0% to 20% and applies " +
+		alertDialog.setMessage("15% - This mode assigns a standard 15% tip to your bill.\n" +
+				"Manual Mode - Here you have full control of your tip amount and all of your totals. \n" +
+				"Lucky Mode - This mode randomly assigns a tip value from 5% to 20% and applies " +
 				"it to your bill's total.");
 		alertDialog.setButton(alertDialog.BUTTON_POSITIVE, "Next", new DialogInterface.OnClickListener() {
 		   public void onClick(DialogInterface dialog, int which) {
@@ -166,8 +167,12 @@ public class SplashPage extends SherlockActivity {
 		AlertDialog alertDialog = new AlertDialog.Builder(this).create();
 		alertDialog.setTitle("Some final thoughts");
 		alertDialog.setMessage("Every mode allows you to split your bill between up to five people.\n" +
-				"If you have suggestions for questions or feedback please provide it via Google Play comments or " +
-				"email me at: calmlyCoding@gmail.com \n\n" +
+				"You can choose your current location by clicking the 'Find Location' button at the top of the " +
+				"screen. \n" +
+				"After you've determined your total including tip, you now have the option to share your story" +
+				"via your facebook feed \n" +
+				"If you have suggestions for questions or feedback please provide it via the app's menu" +
+				", Google Play comments or email me at: calmlyCoding@gmail.com \n\n" +
 				"Thank you again for trying Tipster!");
 		alertDialog.setButton(alertDialog.BUTTON_POSITIVE, "Done", new DialogInterface.OnClickListener() {
 		   public void onClick(DialogInterface dialog, int which) {

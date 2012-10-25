@@ -1,38 +1,43 @@
 package com.apps.tipster;
 
-import com.actionbarsherlock.view.MenuItem;
-
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.view.Menu;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.RatingBar;
 
-public class ClassicMode extends Activity {
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+public class ClassicMode extends SherlockActivity {
 	
 	public static final double VALUE = 42.85714285714286;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Tipster globalApp = ((Tipster)getApplicationContext());        
+	    ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
+        Tipster globalApp = ((Tipster)getApplicationContext());
     }
-
-    @Override
+    
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
+    	MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.activity_main, menu);
         return true;
     }
     
-    public boolean onOptionsItemSelected(android.view.MenuItem item) {    	
+    public boolean onOptionsItemSelected(MenuItem item) {    	
         // Handle item selection
         switch (item.getItemId()) {
+    		case android.R.id.home:
+    			goHome();
+    		return true;
             case R.id.rate:
                 playStore();
                 return true;
@@ -44,6 +49,12 @@ public class ClassicMode extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         } 	
+    }
+    
+    private void goHome(){
+    	Intent intent = new Intent(this, SplashPage.class);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	startActivity(intent);
     }
     
     private void playStore(){

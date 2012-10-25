@@ -3,16 +3,15 @@ package com.apps.tipster;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -22,8 +21,14 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
 
-public class Locate extends Activity {
+
+public class Locate extends SherlockActivity {
 	// flag for Internet connection status
 	Boolean isInternetPresent = false;
 
@@ -62,7 +67,9 @@ public class Locate extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.location);		
+		setContentView(R.layout.location);
+	    ActionBar actionBar = getSupportActionBar();
+	    actionBar.setDisplayHomeAsUpEnabled(true);
 
 		cd = new ConnectionDetector(getApplicationContext());
 
@@ -266,10 +273,52 @@ public class Locate extends Activity {
 			});
 		}
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+	
+    public boolean onCreateOptionsMenu(Menu menu) {
+    	MenuInflater inflater = getSupportMenuInflater();
+        inflater.inflate(R.menu.locate_menu, menu);
+        return true;
+    }
+	
+	public boolean onOptionsItemSelected(MenuItem item) {    	
+        // Handle item selection
+        switch (item.getItemId()) {
+    		case android.R.id.home:
+    			goHome();
+    		return true;
+            case R.id.rate:
+                playStore();
+            return true;
+            case R.id.email:
+                email();
+            return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        } 	
+    }
+    
+    private void goHome(){
+    	Intent intent = new Intent(this, SplashPage.class);
+    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    	startActivity(intent);
+    }
+    
+    private void playStore(){
+    	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
+    	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+    	startActivity(launchBrowser); 
+    }
+    
+    private void locate(){
+		Intent intent = new Intent(this, Locate.class);
+		startActivity(intent);
+    }
+    
+    private void email(){
+    	String aEmailList[] = { "CalmlyCoding@gmail.com"};  
+    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
+    	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
+    	emailIntent.setType("plain/text");    	
+    	startActivity(emailIntent);
+    }
 }

@@ -96,13 +96,14 @@
         android:layout_toRightOf="@+id/numberSpinner"
         android:text="@string/person" />
     
-        <Button
+    <ImageButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:text="Facebook"
-        android:onClick="facebookShare" />
+        android:background="@null"
+        android:onClick="facebookShare"
+        android:src="@drawable/facebook_button" />
 
 </RelativeLayout>

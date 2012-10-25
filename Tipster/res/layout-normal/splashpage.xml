@@ -37,7 +37,7 @@
         android:layout_toRightOf="@array/splitArray"
         android:onClick="quickMode"
         android:scaleType="centerCrop"
-        android:src="@drawable/quick" />
+        android:src="@drawable/quickpercent" />
 
     <TextView
         android:id="@+id/textView3"
@@ -91,7 +91,7 @@
         android:layout_alignTop="@+id/ImageButton02"
         android:onClick="manualMode"
         android:scaleType="centerCrop"
-        android:src="@drawable/lucky" />
+        android:src="@drawable/xpercent" />
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"

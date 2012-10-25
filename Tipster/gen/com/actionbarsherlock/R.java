@@ -1117,12 +1117,14 @@ containing a value of this type.
         public static final int mark_blue=0x7f020097;
         public static final int mark_red=0x7f020098;
         public static final int quick=0x7f020099;
-        public static final int tipster_launcher=0x7f02009a;
+        public static final int quickpercent=0x7f02009a;
+        public static final int tipster_launcher=0x7f02009b;
+        public static final int xpercent=0x7f02009c;
     }
     public static final class id {
-        public static final int ImageButton01=0x7f04006e;
-        public static final int ImageButton02=0x7f040070;
-        public static final int ImageButton03=0x7f04006f;
+        public static final int ImageButton01=0x7f04006f;
+        public static final int ImageButton02=0x7f040071;
+        public static final int ImageButton03=0x7f040070;
         public static final int ImageButton04=0x7f040072;
         public static final int ScrollView01=0x7f040040;
         public static final int TextView01=0x7f040073;
@@ -1216,7 +1218,7 @@ containing a value of this type.
         public static final int ratingBar5=0x7f04004c;
         public static final int ratingBar6=0x7f04004d;
         public static final int reference=0x7f040066;
-        public static final int relLayout1=0x7f040071;
+        public static final int relLayout1=0x7f04006e;
         public static final int rtngMealSpeed=0x7f040041;
         public static final int search_box=0x7f040064;
         public static final int showCustom=0x7f04000a;
@@ -1295,9 +1297,10 @@ containing a value of this type.
     public static final class menu {
         public static final int activity_display_total=0x7f0c0000;
         public static final int activity_main=0x7f0c0001;
-        public static final int lucky_mode=0x7f0c0002;
-        public static final int quick_mode=0x7f0c0003;
-        public static final int splashpage=0x7f0c0004;
+        public static final int locate_menu=0x7f0c0002;
+        public static final int lucky_mode=0x7f0c0003;
+        public static final int quick_mode=0x7f0c0004;
+        public static final int splashpage=0x7f0c0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
