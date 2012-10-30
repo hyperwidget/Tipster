@@ -1,6 +1,6 @@
 <manifest package="com.apps.tipster"
-    android:versionCode="6"
-    android:versionName="1.1" xmlns:android="http://schemas.android.com/apk/res/android">
+    android:versionCode="7"
+    android:versionName="1.15" xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-sdk
         android:minSdkVersion="9"
@@ -8,7 +8,7 @@
     <application android:icon="@drawable/tipster_launcher" 
         android:label="@string/app_name" 
         android:theme="@style/Theme.Sherlock.Light.DarkActionBar"
-        android:name="Tipster">
+        android:name="Tipster" android:debuggable="true">
         <activity android:name="ClassicMode" android:screenOrientation="portrait">
             
         </activity>
