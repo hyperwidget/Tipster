@@ -67,5 +67,6 @@
 	        <string name="findLocation">Find Location</string>
 	        <string name="pickLocation"><b>Select Location :</b></string>
 	        <string name="applicationId">468850536509250</string>
+	        <color name="darkgray">#231F20</color>
 
 </resources>

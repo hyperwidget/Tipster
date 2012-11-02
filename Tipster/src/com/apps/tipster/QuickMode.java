@@ -25,7 +25,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class QuickMode extends SherlockActivity {
+public class QuickMode extends TipsterActivity {
 	
 	private double value = 15.00;
 

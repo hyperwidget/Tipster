@@ -5,7 +5,7 @@
     <uses-sdk
         android:minSdkVersion="9"
         android:targetSdkVersion="15" />
-    <application android:icon="@drawable/tipster_launcher" 
+    <application android:icon="@drawable/tipstertry" 
         android:label="@string/app_name" 
         android:theme="@style/Theme.Sherlock.Light.DarkActionBar"
         android:name="Tipster" android:debuggable="true">

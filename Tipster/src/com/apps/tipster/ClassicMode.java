@@ -14,7 +14,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class ClassicMode extends SherlockActivity {
+public class ClassicMode extends TipsterActivity {
 	
 	public static final double VALUE = 42.85714285714286;
     @Override

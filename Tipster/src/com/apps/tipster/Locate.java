@@ -28,7 +28,7 @@ import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
 
-public class Locate extends SherlockActivity {
+public class Locate extends TipsterActivity {
 	// flag for Internet connection status
 	Boolean isInternetPresent = false;
 
@@ -67,9 +67,7 @@ public class Locate extends SherlockActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.location);
-	    ActionBar actionBar = getSupportActionBar();
-	    actionBar.setDisplayHomeAsUpEnabled(true);
+		setContentView(R.layout.location);	    
 
 		cd = new ConnectionDetector(getApplicationContext());
 
@@ -125,18 +123,6 @@ public class Locate extends SherlockActivity {
         		});
         		
         		alertDialog.show();
-                
-                // getting values from selected ListItem
-              //  String reference = ((TextView) view.findViewById(R.id.reference)).getText().toString();
-                
-                // Starting new intent
-               // Intent in = new Intent(getApplicationContext(),
-                //        SinglePlaceActivity.class);
-                
-                // Sending place reference id to single place activity
-                // place reference id used to get "Place full details"
-                //in.putExtra(KEY_REFERENCE, reference);
-                //startActivity(in);
             }
         });
 	}
@@ -272,53 +258,5 @@ public class Locate extends SherlockActivity {
 				}
 			});
 		}
-	}
-	
-    public boolean onCreateOptionsMenu(Menu menu) {
-    	MenuInflater inflater = getSupportMenuInflater();
-        inflater.inflate(R.menu.locate_menu, menu);
-        return true;
-    }
-	
-	public boolean onOptionsItemSelected(MenuItem item) {    	
-        // Handle item selection
-        switch (item.getItemId()) {
-    		case android.R.id.home:
-    			goHome();
-    		return true;
-            case R.id.rate:
-                playStore();
-            return true;
-            case R.id.email:
-                email();
-            return true;
-            default:
-                return super.onOptionsItemSelected(item);
-        } 	
-    }
-    
-    private void goHome(){
-    	Intent intent = new Intent(this, SplashPage.class);
-    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    	startActivity(intent);
-    }
-    
-    private void playStore(){
-    	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
-    	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-    	startActivity(launchBrowser); 
-    }
-    
-    private void locate(){
-		Intent intent = new Intent(this, Locate.class);
-		startActivity(intent);
-    }
-    
-    private void email(){
-    	String aEmailList[] = { "CalmlyCoding@gmail.com"};  
-    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
-    	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
-    	emailIntent.setType("plain/text");    	
-    	startActivity(emailIntent);
-    }
+	}    
 }

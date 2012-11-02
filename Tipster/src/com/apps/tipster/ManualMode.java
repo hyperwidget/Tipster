@@ -25,7 +25,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class ManualMode extends SherlockActivity {
+public class ManualMode extends TipsterActivity {
 
 	/** Called when the activity is first created. */
 	@Override

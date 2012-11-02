@@ -25,7 +25,7 @@ import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuInflater;
 import com.actionbarsherlock.view.MenuItem;
 
-public class DisplayTotals extends SherlockActivity {
+public class DisplayTotals extends TipsterActivity {
 
 	private double value;
 	/** Called when the activity is first created. */

@@ -27,7 +27,7 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class LuckyMode extends SherlockActivity {
+public class LuckyMode extends TipsterActivity {
 	
 	private double value;
 
