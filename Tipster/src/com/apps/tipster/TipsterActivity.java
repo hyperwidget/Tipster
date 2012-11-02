@@ -18,6 +18,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.apps.tipster.SimpleGestureFilter.SimpleGestureListener;
+import com.google.analytics.tracking.android.EasyTracker;
 import com.slidingmenu.lib.app.SlidingActivity;
 
 public class TipsterActivity extends SlidingActivity implements SimpleGestureListener {
@@ -228,5 +229,19 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 		temp10.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
 		sideMenuItems.add(temp10);
 	}
+	
+	@Override
+	  public void onStart() {
+	    super.onStart();
+	    //STUFFFFFF
+	    EasyTracker.getInstance().activityStart(this); // Add this method.
+	  }
+
+	  @Override
+	  public void onStop() {
+	    super.onStop();
+	    // The rest of your onStop() code.
+	    EasyTracker.getInstance().activityStop(this); // Add this method.
+	  }
 	
 }

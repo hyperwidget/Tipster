@@ -888,6 +888,12 @@ containing a value of this type.
          */
         public static final int abs__config_showMenuShortcutsWhenKeyboardPresent=0x7f050003;
         public static final int abs__split_action_bar_is_narrow=0x7f050001;
+        /** Enable Activity tracking
+         */
+        public static final int ga_autoActivityTracking=0x7f050006;
+        /** Enable automatic exception tracking
+         */
+        public static final int ga_reportUncaughtExceptions=0x7f050007;
     }
     public static final class color {
         public static final int abs__background_holo_dark=0x7f060000;
@@ -1458,14 +1464,14 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abs__shareactionprovider_share_with_application=0x7f090009;
-        public static final int addTip=0x7f090042;
-        public static final int app_name=0x7f090020;
-        public static final int applicationId=0x7f090045;
-        public static final int billAmount=0x7f090034;
-        public static final int calcFinal=0x7f090035;
-        public static final int calculate=0x7f090031;
-        public static final int classicMode=0x7f090036;
-        public static final int clear=0x7f090039;
+        public static final int addTip=0x7f090043;
+        public static final int app_name=0x7f090021;
+        public static final int applicationId=0x7f090046;
+        public static final int billAmount=0x7f090035;
+        public static final int calcFinal=0x7f090036;
+        public static final int calculate=0x7f090032;
+        public static final int classicMode=0x7f090037;
+        public static final int clear=0x7f09003a;
         public static final int com_facebook_choose_friends=0x7f09001e;
         public static final int com_facebook_dialogloginactivity_ok_button=0x7f09000f;
         public static final int com_facebook_loginfragment_log_in_button=0x7f090017;
@@ -1483,36 +1489,39 @@ containing a value of this type.
         public static final int com_facebook_placepicker_subtitle_catetory_only_format=0x7f09001b;
         public static final int com_facebook_placepicker_subtitle_format=0x7f09001a;
         public static final int com_facebook_placepicker_subtitle_were_here_only_format=0x7f09001c;
-        public static final int email=0x7f09003f;
-        public static final int estabClean=0x7f09002b;
-        public static final int estabIntro=0x7f09002a;
-        public static final int estabInvite=0x7f09002c;
-        public static final int finalMessage=0x7f09003a;
-        public static final int finalreturn=0x7f09002e;
-        public static final int findLocation=0x7f090043;
-        public static final int luckyMode=0x7f090038;
-        public static final int meDo=0x7f090041;
-        public static final int mealIntro=0x7f090024;
-        public static final int mealSpeed=0x7f090025;
-        public static final int mealTaste=0x7f090026;
-        public static final int menu_settings=0x7f090021;
-        public static final int no=0x7f090030;
-        public static final int people=0x7f09003d;
-        public static final int person=0x7f09003e;
-        public static final int pickLocation=0x7f090044;
-        public static final int quickMode=0x7f090037;
-        public static final int rate=0x7f090040;
-        public static final int serverCourtesy=0x7f090028;
-        public static final int serverIntro=0x7f090027;
-        public static final int serverRating=0x7f090029;
-        public static final int serverRush=0x7f09002d;
-        public static final int split=0x7f09003c;
-        public static final int tipMessage=0x7f09003b;
-        public static final int tipPercent=0x7f090033;
-        public static final int title_activity_display_total=0x7f090032;
-        public static final int title_activity_main=0x7f090022;
-        public static final int welcome=0x7f090023;
-        public static final int yes=0x7f09002f;
+        public static final int email=0x7f090040;
+        public static final int estabClean=0x7f09002c;
+        public static final int estabIntro=0x7f09002b;
+        public static final int estabInvite=0x7f09002d;
+        public static final int finalMessage=0x7f09003b;
+        public static final int finalreturn=0x7f09002f;
+        public static final int findLocation=0x7f090044;
+        /** Replace placeholder ID with your tracking ID
+         */
+        public static final int ga_trackingId=0x7f090020;
+        public static final int luckyMode=0x7f090039;
+        public static final int meDo=0x7f090042;
+        public static final int mealIntro=0x7f090025;
+        public static final int mealSpeed=0x7f090026;
+        public static final int mealTaste=0x7f090027;
+        public static final int menu_settings=0x7f090022;
+        public static final int no=0x7f090031;
+        public static final int people=0x7f09003e;
+        public static final int person=0x7f09003f;
+        public static final int pickLocation=0x7f090045;
+        public static final int quickMode=0x7f090038;
+        public static final int rate=0x7f090041;
+        public static final int serverCourtesy=0x7f090029;
+        public static final int serverIntro=0x7f090028;
+        public static final int serverRating=0x7f09002a;
+        public static final int serverRush=0x7f09002e;
+        public static final int split=0x7f09003d;
+        public static final int tipMessage=0x7f09003c;
+        public static final int tipPercent=0x7f090034;
+        public static final int title_activity_display_total=0x7f090033;
+        public static final int title_activity_main=0x7f090023;
+        public static final int welcome=0x7f090024;
+        public static final int yes=0x7f090030;
     }
     public static final class style {
         public static final int AppTheme=0x7f0a005c;
