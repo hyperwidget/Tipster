@@ -1,9 +1,16 @@
 package com.apps.tipster;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SplashPage extends TipsterActivity {
 	
@@ -19,6 +26,9 @@ public class SplashPage extends TipsterActivity {
             editor.putBoolean("firstTime", false);
             editor.commit();            
         }
+        TextView carryOn = (TextView)findViewById(R.id.carryOn);
+        carryOn.setVisibility(View.GONE);
+        
     }	   
 	
 	private void showFirstTimeMessage() {
@@ -97,7 +107,36 @@ public class SplashPage extends TipsterActivity {
 				   startInstructions();
 			   }
 			});
-		alertDialog.show();
+		alertDialog.show();	}
+	
+	
+	@SuppressLint({ "NewApi", "NewApi" })
+	public void saveBillAmount(View view){
+
+		EditText bill = (EditText)findViewById(R.id.billAmount);
+		if(bill.getText().toString().length() == 0){
+			bill.setError("You need to enter a bill in order for me to calculate");
+		} else{
+			Tipster global =((Tipster)getApplicationContext());
+			global.setBillAmount(Double.parseDouble(bill.getText().toString()));
+			TextView carryOn = (TextView)findViewById(R.id.carryOn);
+	        carryOn.setVisibility(View.VISIBLE);
+	        
+	        ImageView arrow = (ImageView)findViewById(R.id.leftArrow);
+	        arrow.setVisibility(View.VISIBLE);
+	        
+	        
+	        
+	        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH){
+	        	arrow.setX(38);
+		        arrow.animate().setDuration(1500).xBy(300);
+	        	// Do something for ICS and above versions
+        	} else{ }
+	        
+			InputMethodManager imm = (InputMethodManager)getSystemService(
+				      Context.INPUT_METHOD_SERVICE);
+				imm.hideSoftInputFromWindow(carryOn.getWindowToken(), 0);
+		}
 	}
 }
 

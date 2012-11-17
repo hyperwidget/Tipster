@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,6 +20,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.apps.tipster.SimpleGestureFilter.SimpleGestureListener;
+import com.devspark.appmsg.AppMsg;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.slidingmenu.lib.app.SlidingActivity;
 
@@ -33,6 +36,8 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splashpage);
+        
+
         
 	    ActionBar actionBar = getSupportActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
@@ -58,7 +63,8 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 
 			public void onItemClick(AdapterView<?> parent, View view, int position,
 					long id) {
-				
+				TipsterActivity.this.toggle();
+				Handler handler = new Handler(Looper.getMainLooper());
 				switch(position){
 				case 0:
 					classicMode(parent);
@@ -75,6 +81,15 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 				case 4:
 					locate();
 				break;
+				case 5:
+	                playStore();					
+				break;
+				case 6:
+					email();
+				break;
+				case 7:
+					settings(parent);
+					break;
 				default:
 					TipsterActivity.this.toggle();
 				break;
@@ -84,29 +99,24 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 		});
     }	
 	
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-	   com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
-	   inflater.inflate(R.menu.activity_main, (com.actionbarsherlock.view.Menu) menu);
-	   return super.onCreateOptionsMenu(menu);
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//	   com.actionbarsherlock.view.MenuInflater inflater = getSupportMenuInflater();
+//	   inflater.inflate(R.menu.activity_main, (com.actionbarsherlock.view.Menu) menu);
+//	   return super.onCreateOptionsMenu(menu);
+//    }
     
     //Onclick menu options
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {   
+    public boolean onOptionsItemSelected(MenuItem item) { 
+    	
         // Handle item selection
         switch (item.getItemId()) {
 			case android.R.id.home:
-    			this.toggle();
+    			Intent home = new Intent(this, SplashPage.class);
+    			startActivity(home);
 			return true;
-            case R.id.rate:
-                playStore();
-                return true;
-            case R.id.email:
-                email();
-                return true;
-            case R.id.location:
-            	locate();
+
             default:
                 return super.onOptionsItemSelected(item);
         } 	
@@ -132,7 +142,13 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
     	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
     	emailIntent.setType("plain/text");    	
     	startActivity(emailIntent);
-    }	
+    }
+    
+    // Opens the settings Dialogue
+    public void settings(View view){
+		SettingsFragment details = new SettingsFragment(TipsterActivity.this);
+		details.show();
+    }
 	
 	//Launches Classic mode
 	public void classicMode(View view){
@@ -176,7 +192,8 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
     }
     
 	public void onSwipe(int direction) {	  
-	  if(direction == SimpleGestureFilter.SWIPE_RIGHT && !getSlidingMenu().isBehindShowing()){
+		Tipster global = (Tipster)getApplicationContext();
+	  if(direction == SimpleGestureFilter.SWIPE_RIGHT && !getSlidingMenu().isBehindShowing() && (global.getBillAmount()!=null)){
 		  this.toggle();
 	  }
 	  else if(direction == SimpleGestureFilter.SWIPE_LEFT && getSlidingMenu().isBehindShowing()){
@@ -196,52 +213,44 @@ public class TipsterActivity extends SlidingActivity implements SimpleGestureLis
 		SideMenuItem temp6 = new SideMenuItem();
 		SideMenuItem temp7 = new SideMenuItem();
 		SideMenuItem temp8 = new SideMenuItem();
-		SideMenuItem temp9 = new SideMenuItem();
-		SideMenuItem temp10 = new SideMenuItem();
 		temp1.menuText = "Help me!";
 		temp1.menuIcon = this.getResources().getDrawable(R.drawable.classic);
 		sideMenuItems.add(temp1);
 		temp2.menuText = "Just do it";
 		temp2.menuIcon = this.getResources().getDrawable(R.drawable.quickpercent);
 		sideMenuItems.add(temp2);
-		temp3.menuText = "Choose your own adventure";
+		temp3.menuText = "Manual Entry";
 		temp3.menuIcon = this.getResources().getDrawable(R.drawable.xpercent);
 		sideMenuItems.add(temp3);
 		temp4.menuText = "I'm feeling lucky";
 		temp4.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
 		sideMenuItems.add(temp4);
 		temp5.menuText = "My Location";
-		temp5.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
+		temp5.menuIcon = this.getResources().getDrawable(R.drawable.location);
 		sideMenuItems.add(temp5);
 		temp6.menuText = "Rate";
-		temp6.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
+		temp6.menuIcon = this.getResources().getDrawable(R.drawable.star);
 		sideMenuItems.add(temp6);
 		temp7.menuText = "Contact";
-		temp7.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
+		temp7.menuIcon = this.getResources().getDrawable(R.drawable.contact);
 		sideMenuItems.add(temp7);
 		temp8.menuText = "Settings";
-		temp8.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
+		temp8.menuIcon = this.getResources().getDrawable(R.drawable.settings);
 		sideMenuItems.add(temp8);
-		temp9.menuText = "ITEM9";
-		temp9.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
-		sideMenuItems.add(temp9);
-		temp10.menuText = "ITEM10";
-		temp10.menuIcon = this.getResources().getDrawable(R.drawable.lucky);
-		sideMenuItems.add(temp10);
 	}
 	
 	@Override
 	  public void onStart() {
 	    super.onStart();
 	    //STUFFFFFF
-	    EasyTracker.getInstance().activityStart(this); // Add this method.
+	    EasyTracker.getInstance().activityStart(TipsterActivity.this); // Add this method.
 	  }
 
 	  @Override
 	  public void onStop() {
 	    super.onStop();
 	    // The rest of your onStop() code.
-	    EasyTracker.getInstance().activityStop(this); // Add this method.
+	    EasyTracker.getInstance().activityStop(TipsterActivity.this); // Add this method.
 	  }
 	
 }

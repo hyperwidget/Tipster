@@ -6,6 +6,7 @@ public class Tipster extends Application {
 	private String locationName;
 	private Double tipAmount;
 	private Boolean returnTrip;
+	private Double billAmount;
 	
 	public String getLocationName(){
 		return locationName;		
@@ -20,6 +21,12 @@ public class Tipster extends Application {
 			tipAmount = tipIn;
 		}
 	}
+	
+	public void setBillAmount(Double billIn){
+		if(billIn != null){
+			billAmount = billIn;
+		}
+	}
 
 	public void setReturnTrip(Boolean returnTripIn){
 		if(returnTripIn != null){
@@ -29,6 +36,10 @@ public class Tipster extends Application {
 
 	public Double getTipAmount(){
 		return tipAmount;
+	}
+	
+	public Double getBillAmount(){
+		return billAmount;
 	}
 
 	public Boolean getReturnTrip(){

@@ -2,100 +2,31 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    android:paddingBottom="30dp"
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
-    android:paddingTop="30dp"
-    android:paddingBottom="30dp"  >
-
+    android:paddingTop="30dp" >
+
     <TextView
         android:id="@+id/finalMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView4"
-        android:layout_marginTop="25dp"
+        android:layout_alignRight="@+id/showAmount"
+        android:layout_below="@+id/showAmount"
         android:text="@string/finalMessage"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:onClick="detailsView"
+        android:clickable="true" />
+
     <TextView
         android:id="@+id/finalTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/finalMessage"
-        android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/finalMessage"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_toRightOf="@+id/finalMessage" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="@string/billAmount" />
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView2"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_below="@+id/textView2"
-        android:layout_marginTop="40dp"
-        android:imeOptions="actionDone"
-        android:inputType="number|numberSigned|numberDecimal" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/editText1"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/button_style"
-        android:onClick="paymentTotal"
-        android:text="@string/addTip" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/finalMessage"
-        android:layout_below="@id/button1"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="25dp"
-        android:text="@string/tipMessage" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/finalMessage"
-        android:layout_below="@+id/textView1"
-        android:layout_marginTop="25dp"
-        android:text="@string/split" />
-
-    <Spinner
-        android:id="@+id/numberSpinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_toRightOf="@+id/textView4" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/numberSpinner"
-        android:layout_alignBottom="@+id/numberSpinner"
-        android:layout_toRightOf="@+id/numberSpinner"
-        android:text="@string/person" />
-    <Spinner
-        android:id="@+id/tipSpin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView1"
-        android:layout_toRightOf="@+id/textView1" />
-    
     <ImageButton
         android:id="@+id/button2"
         android:layout_width="wrap_content"
@@ -105,5 +36,27 @@
         android:background="@null"
         android:onClick="facebookShare"
         android:src="@drawable/facebook_button" />
+
+    <TextView
+        android:id="@+id/showAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/dollarsign"
+        android:textColor="@color/white"
+        android:textSize="80dp"
+        android:onClick="detailsView"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/tipMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/showAmount"
+        android:layout_alignLeft="@+id/showAmount"
+        android:text="@string/billSaid"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
 </RelativeLayout>

@@ -4,23 +4,20 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:orientation="vertical"
-  android:background="@color/white"
-  android:paddingTop="1dp"
-  >
+  android:background="@color/buttongray">
   
 <RelativeLayout
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:background="@color/darkgray"
-  android:paddingTop="10dp"
-  android:paddingBottom="10dp">
+  android:paddingBottom="5dp">
     
   <ImageView
-  	  android:id="@+id/side_menu_icon"
-	  android:layout_width="50dip"
-	  android:layout_height="50dip" 
-	  android:src="@drawable/tipstertry" 
-	  android:scaleType="centerCrop"/>
+      android:id="@+id/side_menu_icon"
+      android:layout_width="50dip"
+      android:layout_height="50dip"
+      android:scaleType="fitCenter"
+      android:src="@drawable/tipstertry" />
   
   <TextView
   	  android:id="@+id/side_menu_text"
@@ -31,7 +28,7 @@
 	  android:layout_toRightOf="@id/side_menu_icon"
 	  android:layout_marginLeft="10dip"
 	  android:textColor="@color/white"
-	  android:paddingTop="10dp"/>
+	  android:layout_marginTop="10dp"/>
   
 </RelativeLayout>
 </LinearLayout>

@@ -23,57 +23,8 @@ public class ClassicMode extends TipsterActivity {
         setContentView(R.layout.activity_main);
 	    ActionBar actionBar = getSupportActionBar();
 	    actionBar.setDisplayHomeAsUpEnabled(true);
+	    actionBar.setTitle(R.string.classicMode);
         Tipster globalApp = ((Tipster)getApplicationContext());
-    }
-    
-    public boolean onCreateOptionsMenu(Menu menu) {
-    	MenuInflater inflater = getSupportMenuInflater();
-        inflater.inflate(R.menu.activity_main, menu);
-        return true;
-    }
-    
-    public boolean onOptionsItemSelected(MenuItem item) {    	
-        // Handle item selection
-        switch (item.getItemId()) {
-    		case android.R.id.home:
-    			goHome();
-    		return true;
-            case R.id.rate:
-                playStore();
-                return true;
-            case R.id.email:
-                email();
-                return true;
-            case R.id.location:
-            	locate();
-            default:
-                return super.onOptionsItemSelected(item);
-        } 	
-    }
-    
-    private void goHome(){
-    	Intent intent = new Intent(this, SplashPage.class);
-    	intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-    	startActivity(intent);
-    }
-    
-    private void playStore(){
-    	Uri uriUrl = Uri.parse("https://play.google.com/store/apps/details?id=com.apps.tipster"); 
-    	Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-    	startActivity(launchBrowser); 
-    }
-    
-    private void locate(){
-		Intent intent = new Intent(this, Locate.class);
-		startActivity(intent);
-    }
-    
-    private void email(){
-    	String aEmailList[] = { "CalmlyCoding@gmail.com"};  
-    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND); 
-    	emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList);
-    	emailIntent.setType("plain/text");    	
-    	startActivity(emailIntent);
     }
     
     public void onClick(View view){

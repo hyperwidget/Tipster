@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGray"
+    android:paddingBottom="30dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
+    android:paddingTop="30dp" >
+
+    <TextView
+        android:id="@+id/finalMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/showAmount"
+        android:layout_below="@+id/showAmount"
+        android:text="@string/finalMessage"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:onClick="detailsView"
+        android:clickable="true"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/finalTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/finalMessage"
+        android:layout_toRightOf="@+id/finalMessage" />
+
+    <ImageButton
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@null"
+        android:onClick="facebookShare"
+        android:src="@drawable/facebook_button" />
+
+    <TextView
+        android:id="@+id/showAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:text="@string/dollarsign"
+        android:textColor="@color/white"
+        android:textSize="110dp"
+        android:onClick="detailsView"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/tipMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/showAmount"
+        android:layout_alignLeft="@+id/showAmount"
+        android:text="@string/billSaid"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+</RelativeLayout>

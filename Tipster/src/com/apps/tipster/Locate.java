@@ -68,6 +68,9 @@ public class Locate extends TipsterActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.location);	    
+		
+		ActionBar actionBar = getSupportActionBar();
+	    actionBar.setTitle(R.string.findLocation);
 
 		cd = new ConnectionDetector(getApplicationContext());
 

@@ -63,7 +63,8 @@ public class FacebookPost extends FacebookActivity {
 		  Boolean returnTrip = global.getReturnTrip();
 		  Double tipAmount = global.getTipAmount();
 		  //Log.d("Location", location);
-		  String message = user.getFirstName() + " just ate";
+		  
+		  String message = user.getFirstName() + " just dined";
 		  if(location == null){
 			  message += " out";
 		  } else{
@@ -120,8 +121,8 @@ public class FacebookPost extends FacebookActivity {
 			    params.putString("caption", "Tip with confidence with Tipster");
 			    //params.putString("description", "The Facebook SDK for Android makes it easier and faster to develop Facebook integrated Android apps.");
 			    params.putString("message", message);
-			    params.putString("link", "https://www.facebook.com/calmlycoding");
-			    params.putString("picture", "https://github.com/rawkamatic/Tipster/blob/master/Tipster/res/drawable-xhdpi/tipster_launcher.png?raw=true");
+			    params.putString("link", "https://www.facebook.com/pages/Tipster-Community/353349151428647");
+			    params.putString("picture", "https://docs.google.com/open?id=0B2qtoKGt847LVEdmZ3JieDE0bEU");
 			    String postId = null;
 			    Request.Callback callback= new Request.Callback() {
 		            public void onCompleted(Response response) {	   

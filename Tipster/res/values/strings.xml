@@ -3,7 +3,7 @@
     <string name="app_name">Tipster</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">Tipster</string>
-    <string name="welcome">Welcome to Tipster - the tip calculating app for Android\n\nSelect an option below to continue :</string>
+    <string name="welcome">Welcome to Tipster - the tip calculating app for Android\n</string>
     <string name="mealIntro">Let\'s start off by rating your meal:</string>
     <string name="mealSpeed">How quickly did you recieve your food?</string>
     <string name="mealTaste">How delicious was your meal?</string>
@@ -26,7 +26,7 @@
     <string name="quickMode">15%!</string>
     <string name="luckyMode">Lucky Mode</string>
     <string name="clear">Clear</string>
-    <string name="finalMessage">"Your total after tip is : "</string>
+    <string name="finalMessage">Details &gt;</string>
     <string name="tipMessage">Value of tip : &quot;</string>
     <string name="split">&quot;Split the total by &quot;</string>
     <string name="people">people.</string>
@@ -47,6 +47,7 @@
         <string name="meDo">Manual Entry</string>
         <string name="addTip">Add a tip!</string>
         <string-array name="tipPercentage">
+            
             <item>5%</item>
 	        <item>6%</item>
 	        <item>7%</item>
@@ -67,6 +68,17 @@
 	        <string name="findLocation">Find Location</string>
 	        <string name="pickLocation"><b>Select Location :</b></string>
 	        <string name="applicationId">468850536509250</string>
-	        <color name="darkgray">#231F20</color>
+	        <color name="darkgray">#2d292b</color>
+	        <string name="enterBill">Enter your bill amount to begin</string>
+	        <string name="carryOn">Great! Now slide the menu out from the left and select an option to continue!</string>
+	        <color name="lightGray">#333333</color>	        
+	        <color name="holightblue">#33b5e5</color>
+	        <string name="save">Save</string>
+	        <string name="billSaid">You should pay...</string>
+	        <string name="dollarsign">$</string>
+	        <color name="buttongray">#AEAEAE</color>
+	        <string name="tipsterSays">Tipster says . . .</string>
+	        <string name="tipChoose">You choose to tip : </string>
+	        <string name="settingsMsg">Look forward to settings in the next major version of Tipster! \n\nFor now, however, I would very much like to thank the folks at ActionBarSherlock and iPaulPro for putting out such useful libraries. \n\nAlso, thanks very much to Moise Beshkin for her excellent blog post on swipe gesture recognition. \n\n And obviously, thank YOU for trying Tipster, I appreciate any feedback you may have :D</string>
 
 </resources>
